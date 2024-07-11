@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\VendaController;
 
 
 /*
@@ -27,6 +29,8 @@ Route::middleware(['auth'])->group(function () {
         return view('admin');
     })->name('admin');
 
+    Route::resource('users', UserController::class);
+    Route::resource('vendas', VendaController::class);
 
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });

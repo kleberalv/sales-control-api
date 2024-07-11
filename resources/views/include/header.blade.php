@@ -36,18 +36,6 @@
                 </ul>
                 @else
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a id="clientes" class="nav-link" href="{{route('clientes.index')}}">Clientes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="produtos" class="nav-link" href="{{route('produtos.index')}}">Produtos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="vendas" class="nav-link" href="{{route('vendas.index')}}">Vendas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="relatorio" class="nav-link" href="{{ route('vendas.relatorio') }}">Relatório</a>
-                    </li>
 
                 </ul>
                 <ul class="navbar-nav">
@@ -102,7 +90,7 @@
                 $('#overlay').show();
                 $('#loader').show();
             });
-            $('#home, #clientes, #produtos, #vendas, #relatorio, #imprimirTudo, #logout').click(function() {
+            $('#home, #vendas, #logout').click(function() {
                 $('#overlay').show();
                 $('#loader').show();
             });
