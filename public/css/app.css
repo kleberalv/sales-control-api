@@ -28,7 +28,7 @@
 }
 
 .navbar-custom {
-  background-color: #003366;
+  background-color: #070B3B;
   padding: 0px 0;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .navbar-custom .navbar-nav .nav-item .dropdown-menu {
-  background-color: #003366;
+  background-color: #070B3B;
 }
 
 .navbar-custom .navbar-nav .nav-item .dropdown-menu .dropdown-item {
@@ -75,7 +75,7 @@
 }
 
 .footer-custom {
-  background-color: #003366;
+  background-color: #070B3B;
   color: #fff;
 }
 
@@ -93,7 +93,7 @@
 
 .login-btn:hover {
   background-color: #f8f9fa;
-  color: #003366;
+  color: #070B3B;
 }
 
 @keyframes mltShdSpin {

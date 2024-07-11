@@ -7,23 +7,23 @@
             <div class="col-md-4">
                 <ul class="nav justify-content-end list-unstyled social-icons">
                     <li class="nav-item">
-                        <a href="tel:(12)3204-8340" class="nav-link">
+                        <a href="tel:+55(49)3305-5225" class="nav-link">
                             <i class="fa fa-phone"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://www.instagram.com/corpsystem.ti/" class="nav-link">
+                        <a href="https://www.instagram.com/convictibr/" class="nav-link">
                             <i class="fa fa-instagram"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://www.facebook.com/corpsystemsjc" class="nav-link">
+                        <a href="https://www.facebook.com/convictibr" class="nav-link">
                             <i class="fa fa-facebook"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://api.whatsapp.com/send?phone=5512997432202&text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20sistemas%20da%20Corpsystem!" class="nav-link">
-                            <i class="fa fa-whatsapp"></i>
+                        <a href="https://www.linkedin.com/company/convictibr/posts/?feedView=all" class="nav-link">
+                            <i class="fa fa-linkedin"></i>
                         </a>
                     </li>
                 </ul>

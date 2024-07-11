@@ -15,8 +15,8 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <title>Plataforma de vendas</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <title>CONVICTI</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
