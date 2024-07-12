@@ -13,15 +13,14 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
-        
+
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             $token = $user->createToken('api-token')->plainTextToken;
 
             return response()->json([
                 'message' => 'Login successful',
-                'token' => $token,
-                'user' => $user,
+                'token' => $token
             ]);
         } else {
             return response()->json([

@@ -34,10 +34,10 @@ class UserController extends Controller
         }
 
         $user = $this->userService->createUser($request->all());
-        $message = 'User created successfully!';
+        $message = 'Usuário criado com sucesso!';
 
         return RequestHelper::isApiRequest($request) ?
-            ResponseHelper::respondWithApi($message, $user, Response::HTTP_CREATED) :
+            ResponseHelper::respondWithApi($message, null, Response::HTTP_CREATED) :
             ResponseHelper::respondWithWeb('users.index', $message);
     }
 
@@ -58,17 +58,17 @@ class UserController extends Controller
         }
 
         $user = $this->userService->updateUser($id, $request->all());
-        $message = 'User updated successfully!';
+        $message = 'Usuário atualizado com sucesso!';
 
         return RequestHelper::isApiRequest($request) ?
-            ResponseHelper::respondWithApi($message, $user, Response::HTTP_OK) :
+            ResponseHelper::respondWithApi($message, null, Response::HTTP_OK) :
             ResponseHelper::respondWithWeb('users.index', $message);
     }
 
     public function destroy(Request $request, $id)
     {
         $this->userService->deleteUser($id);
-        $message = 'User deleted successfully!';
+        $message = 'Usuário excluido com sucesso!';
 
         return RequestHelper::isApiRequest($request) ?
             ResponseHelper::respondWithApi($message, null, Response::HTTP_OK) :

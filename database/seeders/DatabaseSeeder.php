@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
             DiretoriaSeeder::class,
             UnidadeSeeder::class,
             UserSeeder::class,
+            VendaSeeder::class,
         ]);
     }
 }

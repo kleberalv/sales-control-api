@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Helpers\ResponseHelper;
 use App\Helpers\RequestHelper;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class VendaController extends Controller
 {
@@ -19,7 +20,7 @@ class VendaController extends Controller
 
     public function index(Request $request)
     {
-        $vendas = $this->vendaService->getAllVendas();
+        $vendas = $this->vendaService->getVendasByUserProfile(Auth::user());
         if (RequestHelper::isApiRequest($request)) {
             return ResponseHelper::respondWithApi(null, $vendas, Response::HTTP_OK);
         }
@@ -33,11 +34,11 @@ class VendaController extends Controller
             return ResponseHelper::respondWithApi($validation['message'], $validation['errors'], $validation['status']);
         }
 
-        $venda = $this->vendaService->createVenda($request->all());
-        $message = 'Venda created successfully!';
+        $this->vendaService->createVenda($request->all(), Auth::user());
+        $message = 'Venda criada com sucesso!';
 
         return RequestHelper::isApiRequest($request) ?
-            ResponseHelper::respondWithApi($message, $venda, Response::HTTP_CREATED) :
+            ResponseHelper::respondWithApi($message, null, Response::HTTP_CREATED) :
             ResponseHelper::respondWithWeb('vendas.index', $message);
     }
 
@@ -52,23 +53,33 @@ class VendaController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validation = $this->vendaService->validateVendaInput($request->all());
+        $authorization = $this->vendaService->authorizeUser();
+        if ($authorization) {
+            return ResponseHelper::respondWithApi($authorization['message'], null, $authorization['status']);
+        }
+
+        $validation = $this->vendaService->validateVendaInput($request->all(), true);
         if ($validation) {
             return ResponseHelper::respondWithApi($validation['message'], $validation['errors'], $validation['status']);
         }
 
-        $venda = $this->vendaService->updateVenda($id, $request->all());
-        $message = 'Venda updated successfully!';
+        $this->vendaService->updateVenda($id, $request->all());
+        $message = 'Venda atualizada com sucesso!';
 
         return RequestHelper::isApiRequest($request) ?
-            ResponseHelper::respondWithApi($message, $venda, Response::HTTP_OK) :
+            ResponseHelper::respondWithApi($message, null, Response::HTTP_OK) :
             ResponseHelper::respondWithWeb('vendas.index', $message);
     }
 
     public function destroy(Request $request, $id)
     {
+        $authorization = $this->vendaService->authorizeUser();
+        if ($authorization) {
+            return ResponseHelper::respondWithApi($authorization['message'], null, $authorization['status']);
+        }
+
         $this->vendaService->deleteVenda($id);
-        $message = 'Venda deleted successfully!';
+        $message = 'Venda excluida com sucesso!';
 
         return RequestHelper::isApiRequest($request) ?
             ResponseHelper::respondWithApi($message, null, Response::HTTP_OK) :

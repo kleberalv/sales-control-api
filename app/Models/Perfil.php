@@ -10,6 +10,8 @@ class Perfil extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'perfis';
+
     protected $fillable = ['nome'];
 
     public function users()
